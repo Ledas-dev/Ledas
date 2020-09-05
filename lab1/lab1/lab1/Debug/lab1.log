@@ -1,3 +1,2 @@
 ﻿  lab1.cpp
-c:\users\79273\saved games\desktop\лиоавиз 19вв1\lab1\lab1\lab1\lab1.cpp(15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-  lab1.vcxproj -> C:\Users\79273\Saved Games\Desktop\ЛиОАвИЗ 19вв1\lab1\lab1\Debug\lab1.exe
+c:\users\79273\saved games\desktop\лиоавиз 19вв1\lab1\lab1\lab1\lab1.cpp(4): fatal error C1041: невозможно открыть базу данных программы C:\Users\79273\Saved Games\Desktop\ЛиОАвИЗ 19вв1\lab1\lab1\lab1\Debug\vc141.pdb; если несколько файлов CL.EXE осуществляют запись в один и тот же PDB-файл, воспользуйтесь /FS
