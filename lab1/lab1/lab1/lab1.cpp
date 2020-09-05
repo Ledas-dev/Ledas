@@ -7,11 +7,12 @@
 #include <locale>
 #include <malloc.h>
 #include <stdlib.h>
+#include <time.h>
 
 int main()
 {
 	setlocale(LC_ALL, "Russian");
-
+	srand(time(NULL));
 	int arr;
 	int max = 0;
 	int min = 0;
@@ -32,6 +33,8 @@ int main()
 			max = b[j];
 			min = b[j] + 1;
 		}
+	}
+	for (int j = 0; j < arr; j++) {
 		if (b[j] < min) {
 			min = b[j];
 		}
