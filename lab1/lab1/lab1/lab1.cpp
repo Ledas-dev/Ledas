@@ -9,6 +9,14 @@
 #include <stdlib.h>
 #include <time.h>
 
+
+
+
+/* Задание 1-3 
+	1) выводит разницу между максимальным и минимальным числом 
+	2) Устанавливаем размер массива в консоле
+	3) В массив выводит рандомные числа 
+*/
 int main()
 {
 	setlocale(LC_ALL, "Russian");
@@ -19,15 +27,17 @@ int main()
 	int sum = 0;
 	int *b;
 	
+	// Вводим размер массива
 	printf_s("Введите размер массива ");
 	scanf_s("%d", &arr);
 
+	// Выделяем память под массив 
 	b = (int *)malloc(arr * sizeof(int));
 
-
+	// Интелезируем массив
 	for (int i = 0; i < arr; i++) 
 		printf_s("%d\n", b[i] = rand() % 100);
-
+	// Вычисляем разницу 
 	for (int j = 0; j < arr; j++) {
 		if (b[j] > max) {
 			max = b[j];
@@ -41,6 +51,7 @@ int main()
 	}
 	sum = max - min;
 
+	// Выводим ответ
 	printf_s("Max = %d\n", max);
 	printf_s("Min = %d\n", min);
 	printf_s("Выведем разницу между max min: %d", sum);
@@ -50,43 +61,6 @@ int main()
 
 }
 
-int main1() {
 
-
-		setlocale(LC_ALL, "Russian");
-		srand(time(NULL));
-		int *b;
-		int min = 0;
-		int max = 0;
-		int sum = 0;
-
-		int arr1;
-		int arr2;
-		int arr3;
-
-
-
-		printf_s("Введем количество чисел в матрице\n:  ");
-		scanf_s("%d\n", &arr1);
-		printf_s("Введем количество строк в матрице\n:  ");
-		scanf_s("%d\n", &arr2);
-		printf_s("Введем количество столбцов в матрице\n:  ");
-		scanf_s("%d\n", &arr3);
-
-		b = (int *)malloc(arr1 * sizeof(int));
-
-		for (int i = 0; i < arr1; i++) {
-			b[i] = rand() % 100;
-		}
-
-		for (int i = 0; i < arr2; i++) {
-			for (int j = 0; j < arr3; j++) {
-				printf_s("%d", b);
-			}
-			printf_s("\n");
-		}
-		getchar();
-		return 0;
-	}
 
 
