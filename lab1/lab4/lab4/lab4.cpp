@@ -41,8 +41,10 @@ int main() {
 	for (int i = 0; i < arr2; i++) {
 		sum[i] = 0;
 		for (int j = 0; j < arr3; j++) {
-			printf("%4d", b[i][j] = rand() % 100);
-			sum[i] += b[i][j];
+			printf("%4d", b[i][j] = rand() % 201 - 100);
+			if(b[i][j]>=0){
+						sum[i] += b[i][j];
+			}
 		}
 		printf("\n\n");
 	}

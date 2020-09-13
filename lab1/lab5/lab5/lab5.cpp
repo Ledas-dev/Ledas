@@ -43,16 +43,18 @@ int main()
 		printf("Ученик %s %s обучается на факультете %s, номер зачетной книжки %d \n", stud[i].family, stud[i].name, stud[i].facult, stud[i].Nomzach  );
 	}
 
-do{
+	do{
 	printf("\nПоиск: " );
-	scanf("%s %s %s %d", poisk.family, poisk.name,poisk.facult,&poisk.Nomzach  );
+	scanf("%s", poisk.family );
 
-	for(int i = 0; i<3;i++){
-		if(strcmp(stud[i].family, poisk.family)==0 && strcmp(stud[i].name, poisk.name)==0 && strcmp(stud[i].facult, poisk.facult)==0 && stud[i].Nomzach == poisk.Nomzach){
-			printf("\nУченик %s %s обучается на факультете %s, номер зачетной книжки %d\n", poisk.family, poisk.name, poisk.facult,poisk.Nomzach );
+		for(int i = 0; i<3;i++){
+				if(strcmp(stud[i].family, poisk.family)==0 || strcmp(stud[i].name, poisk.family)==0 || strcmp(stud[i].facult, poisk.family)==0 || stud[i].Nomzach == poisk.Nomzach){
+					printf("\nУченик %s %s обучается на факультете %s, номер зачетной книжки %d\n", stud[i].family, stud[i].name, stud[i].facult, stud[i].Nomzach );
+				}
 		}
-	}
+
 }while(true);
+
 
 	getchar();
 	getchar();
