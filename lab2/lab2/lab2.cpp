@@ -10,7 +10,7 @@
 #include <malloc.h>
 #include <stddef.h>
 
-int a[4000][4000], b[4000][4000], c[4000][4000];
+int a[2000][2000], b[2000][2000], c[2000][2000];
 
 int main()
 {
