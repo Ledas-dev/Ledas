@@ -70,7 +70,7 @@ int main()
     }
   }
   finish2 = clock();
-  printf("Выведем время выполнения программы %ld\n", (finish2 - begin2)/CLOCKS_PER_SEC);
+  printf("Выведем время выполнения программы %lf\n", (double)(finish2 - begin2)/CLOCKS_PER_SEC);
 
   getchar();
   return 0;

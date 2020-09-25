@@ -11,8 +11,8 @@
 #include <conio.h>
 
 void ShellNumber(int arr, int randomNumber[]);
-void qs(int randomNumber[], int left, int right);
-void easy(int randomNumber[], int arr);
+void qs(int b[], int left, int right);
+void easy(int c[], int arr);
 
 int main()
 {
@@ -27,9 +27,11 @@ int main()
   system("cls");
 
   int *randomNumber;
-
+  int *ac;
+  int *b;
+  int *c;
   int arr;
-
+  int n;
   clock_t start, end;
   clock_t start1, end1;
   clock_t start2, end2;
@@ -39,21 +41,24 @@ int main()
 
   //Выделяем память
   randomNumber = (int*)malloc(arr * sizeof(int));
+  ac = (int*)malloc(arr * sizeof(int));
+  b = (int*)malloc(arr * sizeof(int));
+  c = (int*)malloc(arr * sizeof(int));
 
 
   FILE *file = fopen("text.txt", "a");
 
   fprintf(file, "\nВыведем время выполнения программы массив с рандомными числами\n\n");
   //Массив с рандомными числами
-  printf("\n\n Вводим возростающий за тем убывающий массив\n");
-  for(int i = 1; i<arr/2; i++){
-        randomNumber[i]=i;
-      printf("%d\n",  randomNumber[i]);
-  }
-  for(int i = arr/2; i>0; i--){
-        randomNumber[i]=i;
-      printf("%d\n",  randomNumber[i]);
-  }
+  printf("\nВводим массив с рандомными числами\n");
+      for(int i=0; i<arr; i++){
+
+        n = rand() %100;
+        randomNumber[i] = n;
+        b[i] = n;
+        c[i] = n;
+        printf("%d\n", randomNumber[i]);
+      }
   start = clock();
 
   ShellNumber(arr, randomNumber);
@@ -72,11 +77,11 @@ int main()
 
   start1 = clock();
 
-  qs(randomNumber,  0,  arr-1);
+  qs(b,  0,  arr-1);
   printf("Метод qs: \n ");
   for (int i = 0; i < arr; i++){
-      printf("%d ", randomNumber[i]);
-    fprintf(file, "%d ", randomNumber[i]);
+      printf("%d ", b[i]);
+    fprintf(file, "%d ", b[i]);
   }
 
   end1 = clock();
@@ -84,11 +89,11 @@ int main()
     fprintf(file, "\n\nВыведем время выполнения программы %lf\n\n", (double)(end1 - start1)/CLOCKS_PER_SEC);
   start2 = clock();
 
-  easy(randomNumber, arr);
+  easy(c, arr);
   printf("Быстрая сортировка:\n");
   for(int i =0; i<arr;i++){
-    printf("%d ", randomNumber[i]);
-      fprintf(file,"%d ", randomNumber[i]);
+    printf("%d ", c[i]);
+      fprintf(file,"%d ",c[i]);
   }
 
   end2 = clock();
@@ -117,7 +122,22 @@ printf("\nВводим массив с рандомными числами\n");
         randomNumber[i]=i;
       printf("%d\n",  randomNumber[i] );
     }
+    printf("\n\n Вводим возростающий за тем убывающий массив\n");
+    for(int i = 1; i<arr/2; i++){
+        randomNumber[i]=i;
+        printf("%d\n",  randomNumber[i]);
+        ac[i] = randomNumber[i];
+          b[i] = randomNumber[i];
+            c[i] = randomNumber[i];
 
+    }
+    for(int i = arr/2; i>0; i--){
+          randomNumber[i]=i;
+        printf("%d\n",  randomNumber[i]);
+        ac[i]=randomNumber[i];
+          b[i] = randomNumber[i];
+            c[i] = randomNumber[i];
+    }
 \
 
   }*/
@@ -150,7 +170,7 @@ void ShellNumber(int arr, int randomNumber[])
 }
 
 // Сортировка qs
-void qs(int randomNumber[], int left, int right) //вызов функции: qs(items, 0, count-1);
+void qs(int b[], int left, int right) //вызов функции: qs(items, 0, count-1);
 {
   int i, j;
   int x, y;
@@ -160,34 +180,34 @@ void qs(int randomNumber[], int left, int right) //вызов функции: qs
   i = left; j = right;
 
   /* выбор компаранда */
-  x = randomNumber[(left+right)/2];
+  x = b[(left+right)/2];
 
   do {
-    while((randomNumber[i] < x) && (i < right)) i++;
-    while((x < randomNumber[j]) && (j > left)) j--;
+    while((b[i] < x) && (i < right)) i++;
+    while((x < b[j]) && (j > left)) j--;
 
     if(i <= j) {
-      y = randomNumber[i];
-      randomNumber[i] = randomNumber[j];
-      randomNumber[j] = y;
+      y = b[i];
+      b[i] = b[j];
+      b[j] = y;
       i++; j--;
     }
   } while(i <= j);
 
-  if(left < j) qs(randomNumber, left, j);
-  if(i < right) qs(randomNumber, i, right);
+  if(left < j) qs(b, left, j);
+  if(i < right) qs(b, i, right);
 }
 
-void easy(int randomNumber[], int arr){
+void easy(int c[], int arr){
   for(int i = 0 ; i < arr - 1; i++) {
        // сравниваем два соседних элемента.
        for(int j = 0 ; j < arr - i - 1 ; j++) {
-           if(randomNumber[j] > randomNumber[j+1]) {
+           if(c[j] > c[j+1]) {
               // если они идут в неправильном порядке, то
               //  меняем их местами.
-              int tmp = randomNumber[j];
-              randomNumber[j] = randomNumber[j+1] ;
-              randomNumber[j+1] = tmp;
+              int tmp = c[j];
+            c[j] = c[j+1] ;
+              c[j+1] = tmp;
            }
         }
     }
