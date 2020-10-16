@@ -27,7 +27,7 @@ int main()
   system("cls");
 
   int *randomNumber;
-  int *ac;
+\
   int *b;
   int *c;
   int arr;
